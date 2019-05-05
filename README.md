@@ -35,4 +35,4 @@ This page contains the opening speech the oathmaster will give prior to an indiv
 
 ---
 
-<a href='https://www.paypal.com/pools/c/8253IxQmxN'>Click here to lend your support to: C3 - Communicate / Command / Control and make a donation!'</a>
+<a href='https://www.paypal.com/pools/c/8253IxQmxN'>Click here to lend your support to: C3 - Communicate / Command / Control and make a donation!</a>
