@@ -26,7 +26,7 @@ class CoinRitualHooks extends \SlaxWeb\Hooks\Service\Definition
 		}
 
 		if (in_array($lang, $allowedLang) === false) {
-			$app["response.service"]->redirect("/language");
+			$app["response.service"]->redirect("/apps/ToB/language");
 			exit;
 		}
 		$app["session.service"]->set("language", $lang);
