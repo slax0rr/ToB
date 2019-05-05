@@ -1,0 +1,133 @@
+<!--
+ !
+ ! Trial of Bloodright
+ ! Standalone page for
+ !
+ ! Coin Ritual
+ !
+ ! INDEX
+ ! All Language / Language selector
+ !
+ ! Copyright 2017 CWG
+ ! Clan Wolf Gamma
+ ! http://www.clanwolf.net
+ !
+ ! This page is the landing page for the ToB coin ritual.
+ ! It cointains a selector for one of the provided languages:
+ ! en / de / ru
+ !
+ ! -->
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="ToB - Trial of Bloodright">
+	<meta name="keywords" content="BattleTech, MechWarrior, Clan, Wolf, Mech, BattleMech, MadCat, TimberWolf, Seyla, Kerensky, Bloodright, ToB">
+	<meta http-equiv="content-language" content="en">
+	<meta name="robots" content="INDEX,FOLLOW">
+
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+	<link rel="stylesheet" href="css/stylesheet.css">
+
+	<script src="https://use.fontawesome.com/908b97f3a3.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/cookies.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/animation.js"></script>
+	<script type="text/javascript" src="js/typewriter.js"></script>
+	<script type="text/javascript" src="js/howler.min.js"></script>
+	<script type="text/javascript" src="js/sound.js"></script>
+</head>
+
+<body onload="move_languageselector_down();">
+
+	<div class="selected_flag">
+		<a href="#">
+			<script type="text/javascript">
+				var lang = getCookie("tob_language");
+				if ((lang !== null) && (typeof lang != 'undefined')) {
+					document.write("<img name='flag' id='flag' src='img/flag/" + lang + ".png' width='30px' onclick='move_languageselector_down();'>");
+				} else {
+					document.write("<img name='flag' id='flag' src='img/flag/empty.png' width='30px' onclick='move_languageselector_down();'>");
+				}
+				$("#flag").fadeOut("slow");
+			</script>
+		</a>
+	</div>
+
+	<div class="galaxy_symbol">
+		<img name="galaxy" src="img/WolfEmpty.png" width="90px">
+	</div>
+
+	<div name="movable" id="1000" class="top_background"></div>
+	<div class="head_structure" id="headstructure"></div>
+
+	<div class="mech_left"><img name="galaxy" src="img/timberwolf-left.png" width="330px"></div>
+	<div class="mech_right"><img name="galaxy" src="img/timberwolf-right.png" width="330px"></div>
+
+	<div id="contentwindow" class="content">
+		<script type="text/javascript">
+			$("#contentwindow").fadeOut(0);
+		</script>
+		<div id="typedtext"></div>
+		<div class="fastforwardbutton"><a href="container.htm" style="font-family: 'Arial', sans-serif; font: normal 28px 'Arial';">&gt;&gt;&gt;</a></div> 
+	</div>
+
+	<div name="movable" id="1010" class="fire">
+		<img src="img/fire.gif" width="90px" height="180px">
+	</div>
+
+	<div name="movable" id="1020" class="content_language_selector">
+		<table style="width: 300px; border-collapse: collapse; border-spacing: 0px; border: 0px; margin: 0px; padding: 0px;">
+			<tr>
+				<td style="padding: 0px;" width="100px" style="text-align:right;">
+					<a class="tooltip" onclick="move_languageselector_up('en');" href="#">
+						<span class="tooltiptext">Enter</span>
+						<img src="img/selector_left.png"
+							width="100px"
+							height="550px"
+							onmouseover="changeImage('galaxy','galaxyImage_Alpha');"
+							onmouseout="changeImage('galaxy','galaxyImage_Empty');">
+					</a>
+				</td>
+				<td style="padding: 0px;" width="100px" style="text-align:center;">
+					<a class="tooltip" onclick="move_languageselector_up('de');" href="#">
+						<span class="tooltiptext">Betreten</span>
+						<img src="img/selector_center.png"
+							width="100px"
+							height="550px"
+							onmouseover="changeImage('galaxy','galaxyImage_Gamma');"
+							onmouseout="changeImage('galaxy','galaxyImage_Empty');">
+					</a>
+				</td>
+				<td style="padding: 0px;" width="100px" style="text-align:left;">
+					<a class="tooltip" onclick="move_languageselector_up('ru');" href="#">
+						<span class="tooltiptext">войти</span>
+						<img src="img/selector_right.png"
+							width="100px"
+							height="550px"
+							onmouseover="changeImage('galaxy','galaxyImage_Beta');"
+							onmouseout="changeImage('galaxy','galaxyImage_Empty');">
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="bottom">
+		<script type="text/javascript">
+			if (sound === "on") {
+				document.write("<span id='soundswitch'><a href='#' onclick='setSoundOff();'><i class='fa fa-volume-up fa-3x' aria-hidden='true'></i></span>");
+			} else {
+				document.write("<span id='soundswitch'><a href='#' onclick='setSoundOn();'><i class='fa fa-volume-off fa-3x' aria-hidden='true'></i></span>");
+			}
+		</script>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+<a href='https://pledgie.com/campaigns/32139'><img alt='Click here to lend your support to: C3 - Communicate / Command / Control and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/32139.png?skin_name=chrome' border='0' ></a>

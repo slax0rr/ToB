@@ -1,0 +1,38 @@
+{
+    "name": "slaxweb/database-pdo",
+    "description": "PDO Database Library Sub Component for SlaxWeb Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomaz Lovrec",
+            "email": "tomaz.lovrec@gmail.com"
+        }
+    ],
+    "require": {
+        "php":  ">=7.0.0",
+        "ext-pdo": "*",
+        "slaxweb/database": "dev-master",
+        "slaxweb/config": "~0.2"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.2",
+        "codeception/specify": "*",
+        "behat/gherkin": "~4.4",
+        "phpunit/phpunit": "~5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "SlaxWeb\\DatabasePDO\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SlaxWeb\\DatabasePDO\\Test\\Unit\\": "tests/unit/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.6.x-dev"
+        }
+    }
+}

@@ -1,0 +1,12 @@
+**/.DS_Store
+**.swp
+**.directory
+**.session.vim
+composer.lock
+vendor/
+.tags
+build/
+docs/
+tests/_support/_generated/
+
+tests/_output/*

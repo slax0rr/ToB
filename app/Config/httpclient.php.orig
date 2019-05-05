@@ -1,0 +1,11 @@
+<?php
+$configuration["settings"] = [
+    "base_uri"  =>  "",
+    "timeout"   =>  5.0
+];
+
+$configuration["auth"] = [
+    "type"  =>  "basic",
+    "user"  =>  "",
+    "pass"  =>  ""
+];

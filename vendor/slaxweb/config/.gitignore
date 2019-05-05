@@ -1,0 +1,12 @@
+**/.DS_Store
+**.swp
+**.directory
+**.session.vim
+composer.lock
+vendor/
+.tags
+<<<<<<< HEAD
+
+tests/_output/*
+=======
+>>>>>>> add composer file to master to satisfy packagist
