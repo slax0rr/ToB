@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#flag').on('click', function() {
         var flag = $(this);
         $('#contentwindow').fadeOut(1000, function() {
-            window.location = '/language';
+            window.location = '/apps/ToB/language';
         });
     });
 });

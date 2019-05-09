@@ -18,7 +18,7 @@ $(document).ready(function() {
         e.preventDefault();
         var lang = $(this).data('langstring');
         hideLangSelector(lang);
-        $('.fastforwardbutton a').attr('href', '/' + lang)
+        $('.fastforwardbutton a').attr('href', '/apps/ToB/' + lang)
         showContentWindow(lang);
     });
 });
@@ -58,7 +58,7 @@ var showContentWindow = function(languageString) {
         typewriter_continue();
         typewriter(function() {
             $('#typedtext').fadeOut(1000, function() {
-                window.location = '/' + languageString;
+                window.location = '/apps/ToB/' + languageString;
             });
         });
     });
