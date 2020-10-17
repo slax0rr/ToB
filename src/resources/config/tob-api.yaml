@@ -1,0 +1,4 @@
+http:
+  host: ''
+  port: 3000
+  sockPath: '/var/run/tob-api.sock'

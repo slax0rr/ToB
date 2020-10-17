@@ -1,0 +1,35 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: ClanWolf
+host: api.clanwolf.net
+schemes:
+- http
+basePath: /v1
+produces:
+- application/vnd.api+json; charset=utf-8
+- application/json; charset=utf-8
+
+paths:
+  /health:
+    get:
+      tags:
+      - Health
+      summary: Get health of the API
+      responses:
+        200:
+          description: healthy
+        500:
+          description: Internal Server Error
+          schema:
+            $ref: "#/definitions/ApiError"
+
+definitions:
+  ApiError:
+    type: object
+    properties:
+      error_message:
+        type: string
+      error_code:
+        type: string
+        format: uuid
