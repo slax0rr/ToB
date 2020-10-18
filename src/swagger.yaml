@@ -60,7 +60,7 @@ definitions:
         type: string
       warrior:
         type: string
-      bloodright:
+      bloodname:
         type: string
       sponsor:
         type: string
@@ -68,18 +68,10 @@ definitions:
         type: string
       tournament_start_time:
         type: string
-      details:
-        type: string
-      witness_list:
-        type: string
-      rules_version:
-        type: string
-      challonge_link:
-        type: string
-      challonge_screenshot:
-        type: string
 
   TournamentWinners:
-    type: array
-    items:
-      $ref: "#/definitions/TournamentWinner"
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        $ref: "#/definitions/TournamentWinner"
