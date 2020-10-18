@@ -2,3 +2,9 @@ http:
   host: ''
   port: 3000
   sockPath: '/var/run/tob-api.sock'
+db:
+  host: '127.0.0.1'
+  port: 3306
+  user: 'tobapi_user'
+  pass: 'tobapi_pass'
+  name: 'clanwolf'

@@ -16,10 +16,13 @@ limitations under the License.
 package serve
 
 import (
+	"github.com/ClanWolf/ToB/src/infrastructure/container"
 	"github.com/ClanWolf/ToB/src/infrastructure/restapi"
 	"github.com/ClanWolf/ToB/src/infrastructure/restapi/operations"
 	healthop "github.com/ClanWolf/ToB/src/infrastructure/restapi/operations/health"
+	tournamentop "github.com/ClanWolf/ToB/src/infrastructure/restapi/operations/tournament"
 	"github.com/ClanWolf/ToB/src/interface/http/health"
+	"github.com/ClanWolf/ToB/src/interface/http/tournament"
 	"github.com/go-openapi/loads"
 	"github.com/jessevdk/go-flags"
 	"github.com/sirupsen/logrus"
@@ -48,6 +51,12 @@ func Execute(srvrCfg Config) {
 	api := operations.NewClanWolfAPI(swaggerSpec)
 	registerHandlers(api)
 
+	if err := container.GetDataAccessObject().OpenDB(); err != nil {
+		logrus.WithError(err).Panic("unable to open DB connection")
+	}
+
+	defer container.GetDataAccessObject().CloseDB()
+
 	server := restapi.NewServer(api)
 	defer server.Shutdown()
 
@@ -64,4 +73,6 @@ func Execute(srvrCfg Config) {
 
 func registerHandlers(api *operations.ClanWolfAPI) {
 	api.HealthGetHealthHandler = healthop.GetHealthHandlerFunc(health.HandleGet)
+	api.TournamentGetTournamentWinnersHandler =
+		tournamentop.GetTournamentWinnersHandlerFunc(tournament.HandleGetTournamentWinners)
 }

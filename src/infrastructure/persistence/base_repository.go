@@ -15,8 +15,14 @@ limitations under the License.
 */
 package persistence
 
-import "github.com/ClanWolf/ToB/src/domain"
+import "github.com/jinzhu/gorm"
 
-func Init() {
-	domain.InitHelloRepo(new(HelloRepo))
+type base struct {
+	conn *gorm.DB
+}
+
+func newBase(conn *gorm.DB) *base {
+	return &base{
+		conn: conn,
+	}
 }

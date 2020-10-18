@@ -16,6 +16,7 @@ limitations under the License.
 package cmd
 
 import (
+	"github.com/ClanWolf/ToB/src/infrastructure/container"
 	"github.com/ClanWolf/ToB/src/interface/cli/serve"
 	"github.com/jessevdk/go-flags"
 	"github.com/spf13/cobra"
@@ -28,6 +29,13 @@ var serveCmd = &cobra.Command{
 	Short: "Start the API server",
 	Long:  `Starts an API server for the Clan Wolf - Trial of Bloodright API.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		container.InitDataAccess(container.DBConfig{
+			Host:         viper.GetString("db.host"),
+			Port:         viper.GetInt("db.port"),
+			User:         viper.GetString("db.user"),
+			Password:     viper.GetString("db.pass"),
+			DatabaseName: viper.GetString("db.name"),
+		})
 
 		serve.Execute(serve.Config{
 			Host:       viper.GetString("http.host"),
