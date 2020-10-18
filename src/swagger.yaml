@@ -24,6 +24,21 @@ paths:
           schema:
             $ref: "#/definitions/ApiError"
 
+  /tournament/winners:
+    get:
+      tags:
+      - Tournament
+      summary: Get winners of past tournament winners
+      responses:
+        200:
+          description: List of winners
+          schema:
+            $ref: "#/definitions/TournamentWinners"
+        500:
+          description: Internal Server Error
+          schema:
+            $ref: "#/definitions/ApiError"
+
 definitions:
   ApiError:
     type: object
@@ -33,3 +48,38 @@ definitions:
       error_code:
         type: string
         format: uuid
+
+  TournamentWinner:
+    type: object
+    properties:
+      id:
+        type: integer
+      clan:
+        type: string
+      galaxy:
+        type: string
+      warrior:
+        type: string
+      bloodright:
+        type: string
+      sponsor:
+        type: string
+      tournament_host:
+        type: string
+      tournament_start_time:
+        type: string
+      details:
+        type: string
+      witness_list:
+        type: string
+      rules_version:
+        type: string
+      challonge_link:
+        type: string
+      challonge_screenshot:
+        type: string
+
+  TournamentWinners:
+    type: array
+    items:
+      $ref: "#/definitions/TournamentWinner"
