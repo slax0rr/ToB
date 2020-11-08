@@ -1,9 +1,0 @@
-**/.DS_Store
-**.swp
-**.directory
-**.session.vim
-composer.lock
-vendor/
-.tags
-
-tests/_output/*

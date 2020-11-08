@@ -1,7 +1,0 @@
-**.swp
-**.directory
-vendor/
-.tags
-composer.lock
-
-tests/_output/*
