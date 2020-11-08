@@ -10,6 +10,8 @@ $baseurl = (($_SERVER["SSL"] ?? "off") == "on" ? "https" : "http")
     . "://{$_SERVER["HTTP_HOST"]}"
     . str_replace($_SERVER["SCRIPT_NAME"], "", $_SERVER["REQUEST_URI"]);
 
+$apiurl = "http://api.tob.local/v1/";
+
 $customCSS = "";
 $customHead = "";
 $mainContent = "";
@@ -23,7 +25,8 @@ switch (trim($_GET["p"])) {
 case "home":
 default:
     $pageContent = require_once __DIR__ . "/templates/{$homePage}.php";
-    $mainContent = $pageContent["body"];
+    $mainContent = $pageContent["body"] ?? "";
+    $customJS = $pageContent["script"] ?? "";
 }
 
 require_once __DIR__ . "/templates/layout.php";

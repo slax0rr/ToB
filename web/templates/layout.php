@@ -182,7 +182,8 @@ if (!defined("TOB_APP")) {
     <div class="bottom">
         <script>
             var appData = {
-                baseurl: '<?= $baseurl; ?>'
+                baseurl: '<?= $baseurl; ?>',
+                apiurl: '<?= $apiurl; ?>'
             };
         </script>
 
@@ -195,6 +196,7 @@ if (!defined("TOB_APP")) {
         <script src="<?= $baseurl; ?>/js/noty.min.js"></script>
         <script src="<?= $baseurl; ?>/js/jquery.mousewheel.js"></script>
         <script src="<?= $baseurl; ?>/js/jquery.jscrollpane.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <?= $customJS ?? ""; ?>
 
