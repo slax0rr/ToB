@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 
 services:
   db:
@@ -11,11 +11,35 @@ services:
       MYSQL_DATABASE: clanwolf
       MYSQL_USER: tobapi_user
       MYSQL_PASSWORD: tobapi_pass
-    container_name: mariadb
+    container_name: tob_mariadb
+    networks:
+    - tob
 
   adminer:
     image: adminer
     restart: always
     ports:
     - 8080:8080
-    container_name: adminer
+    container_name: tob_adminer
+    networks:
+    - tob
+
+  web:
+    image: php:7.4-cli
+    labels:
+    - "traefik.http.routers.tob-web.rule=Host(`tob.local`)"
+    - "traefik.http.routers.tob-web.tls=false"
+    - "traefik.http.services.tob-web.loadbalancer.server.port=8080"
+    volumes:
+    - "./web:/code"
+    working_dir: /code
+    command: php -S 0.0.0.0:8080
+    container_name: tob_web
+    networks:
+    - traefik
+
+networks:
+  traefik:
+    external: true
+  tob:
+    name: tob

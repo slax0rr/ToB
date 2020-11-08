@@ -1,0 +1,27 @@
+version: "3.5"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./resources/docker/Dockerfile
+    labels:
+    - "traefik.http.middlewares.tob-api-cors.headers.accesscontrolallowmethods=GET,POST,DELETE,PUT,OPTIONS"
+    - "traefik.http.middlewares.tob-api-cors.headers.accesscontrolalloworiginlist=http://tob.local"
+    - "traefik.http.middlewares.tob-api-cors.headers.accesscontrolmaxage=100"
+    - "traefik.http.middlewares.tob-api-cors.headers.addvaryheader=true"
+    - "traefik.http.routers.tob-api.rule=Host(`api.tob.local`)"
+    - "traefik.http.routers.tob-api.tls=false"
+    - "traefik.http.routers.tob-api.middlewares=tob-api-cors@docker"
+    - "traefik.http.services.tob-api.loadbalancer.server.port=3000"
+    container_name: tob_api
+    command: serve
+    networks:
+    - traefik
+    - tob
+
+networks:
+  traefik:
+    external: true
+  tob:
+    external: true

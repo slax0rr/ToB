@@ -4,10 +4,11 @@ DLV=dlv
 SUDO=sudo
 MOVE=mv
 CHMOD=chmod
+DKC=docker-compose
 
 REPO_PATH=github.com/ClanWolf/ToB/src
 CMD_PATH=${REPO_PATH}/tob-api
-BIN_PATH=${GOPATH}/bin
+BIN_PATH=./tmp/bin
 CMD_NAME=tob-api
 CFG_PATH=resources/config
 CFG_FILE=${CFG_PATH}/tob-api.yaml
@@ -28,12 +29,10 @@ test:
 	${GOCMD} test -v ./...
 
 build:
-	${GOCMD} mod tidy
-
-	${GOCMD} build -o ${BIN_PATH}/${CMD_NAME} ${CMD_PATH}
+	${DKC} build api
 
 run: build
-	${BIN_PATH}/${CMD_NAME} serve --config ${CFG_FILE}
+	${DKC} up -d api
 
 debug: EXEC_CMD ?= serve
 debug:
