@@ -18,10 +18,7 @@ services:
     command: serve
     networks:
     - traefik
-    - tob
 
 networks:
   traefik:
-    external: true
-  tob:
     external: true

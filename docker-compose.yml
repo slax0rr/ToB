@@ -13,7 +13,7 @@ services:
       MYSQL_PASSWORD: tobapi_pass
     container_name: tob_mariadb
     networks:
-    - tob
+    - traefik
 
   adminer:
     image: adminer
@@ -22,7 +22,7 @@ services:
     - 8080:8080
     container_name: tob_adminer
     networks:
-    - tob
+    - traefik
 
   web:
     image: php:7.4-cli
@@ -41,5 +41,3 @@ services:
 networks:
   traefik:
     external: true
-  tob:
-    name: tob
