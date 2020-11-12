@@ -35,7 +35,11 @@ case "rules":
     break;
 
 case "oathmaster":
-    $observer = false;
+case "ritual":
+    $observer = true;
+    if ($p === "oathmaster") {
+        $observer = false;
+    }
     $activeStep = $_GET["step"] ?? "1";
     $pageContent = require_once __DIR__ . "/templates/ritual.php";
     break;
