@@ -34,6 +34,12 @@ case "rules":
     $pageContent = require_once __DIR__ . "/templates/{$p}.php";
     break;
 
+case "oathmaster":
+    $observer = false;
+    $activeStep = $_GET["step"] ?? "1";
+    $pageContent = require_once __DIR__ . "/templates/ritual.php";
+    break;
+
 default:
     $pageContent = require_once __DIR__ . "/templates/404.php";
     break;
