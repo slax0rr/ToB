@@ -30,6 +30,7 @@ case "":
 
 case "fame":
 case "tables":
+case "rules":
     $pageContent = require_once __DIR__ . "/templates/{$p}.php";
     break;
 
