@@ -8,7 +8,7 @@ $homePage = "fame";
 
 $baseurl = (($_SERVER["SSL"] ?? "off") == "on" ? "https" : "http")
     . "://{$_SERVER["HTTP_HOST"]}"
-    . str_replace($_SERVER["SCRIPT_NAME"], "", $_SERVER["REQUEST_URI"]);
+    . substr($_SERVER["REQUEST_URI"], 0,  strpos($_SERVER["REQUEST_URI"], $_SERVER["SCRIPT_NAME"]));
 
 $apiurl = "http://api.tob.local/v1/";
 
@@ -20,15 +20,21 @@ $customJS = "";
 $lang = "en";
 
 $_t = new Translator;
+$pageContent = "";
 
 switch (trim($_GET["p"])) {
-case "home":
+case $homePage:
 case "":
     $pageContent = require_once __DIR__ . "/templates/{$homePage}.php";
-    $mainContent = $pageContent["body"] ?? "";
-    $customJS = $pageContent["script"] ?? "";
-    $customCSS = $pageContent["style"] ?? "";
+    break;
+
 default:
+    $pageContent = require_once __DIR__ . "/templates/404.php";
+    break;
 }
+
+$mainContent = $pageContent["body"] ?? "";
+$customJS = $pageContent["script"] ?? "";
+$customCSS = $pageContent["style"] ?? "";
 
 require_once __DIR__ . "/templates/layout.php";
