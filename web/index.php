@@ -22,10 +22,15 @@ $lang = "en";
 $_t = new Translator;
 $pageContent = "";
 
-switch (trim($_GET["p"])) {
-case $homePage:
+$p = trim($_GET["p"]);
+switch ($p) {
 case "":
     $pageContent = require_once __DIR__ . "/templates/{$homePage}.php";
+    break;
+
+case "fame":
+case "tables":
+    $pageContent = require_once __DIR__ . "/templates/{$p}.php";
     break;
 
 default:
