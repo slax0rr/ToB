@@ -42,6 +42,7 @@ func HandleGetTournamentWinners(params operations.GetTournamentWinnersParams) mi
 				Clan:                w.Clan,
 				Galaxy:              w.Galaxy,
 				ID:                  int64(w.ID),
+				Rank:                w.Rank,
 				Sponsor:             w.Sponsor,
 				TournamentHost:      w.TourneyHost,
 				TournamentStartTime: w.TourneyStartTime,

@@ -58,6 +58,8 @@ definitions:
         type: string
       galaxy:
         type: string
+      rank:
+        type: string
       warrior:
         type: string
       bloodname:

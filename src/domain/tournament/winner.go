@@ -27,10 +27,11 @@ type Winner struct {
 	ID               uint   `gorm:"column:id"`
 	Clan             string `gorm:"column:Clan"`
 	Galaxy           string `gorm:"column:Galaxy"`
+	Rank             string `gorm:"column:Rank"`
 	MechWarrior      string `gorm:"column:MechWarrior"`
 	Bloodname        string `gorm:"column:Bloodright"`
 	Sponsor          string `gorm:"column:Sponsor"`
-	TourneyHost      string `gorm:"column:TournerHost"`
+	TourneyHost      string `gorm:"column:TourneyHost"`
 	TourneyStartTime string `gorm:"column:TourneyStartTime"`
 }
 
