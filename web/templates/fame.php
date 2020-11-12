@@ -49,6 +49,7 @@ ob_start();
 <script src="<?= $baseurl; ?>/js/fame.js"></script>
 <?php
 $pageContent["script"] = ob_get_clean();
+$pageContent["scroll"] = true;
 
 // return content
 return $pageContent;

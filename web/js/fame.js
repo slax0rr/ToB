@@ -1,7 +1,10 @@
 $(document).ready(() => {
-  getWinners().then(populateWinners)
+  getWinners().
+    then(populateWinners).
+    then(initScroll)
 });
 
+// populateWinners populates the tournament winners table in the DOM.
 const populateWinners = (winners) => {
   Object.keys(winners).forEach(bloodname => {
     if (winners[bloodname].length === 0) {
@@ -69,6 +72,7 @@ const getWinners = async () => {
   return winners;
 }
 
+// rankImage creates an <img> tag with the rank image source.
 const rankImage = (rank) => {
   return $('<img>').attr('src', `${appData.baseurl}/img/rank/${rank}.png`).attr('width', '16px');
 }

@@ -16,17 +16,53 @@ galaxyImage_Gamma.src = 'img/WolfGamma.png';    /* Gamma */
 galaxyImage_Empty = new Image();
 galaxyImage_Empty.src = 'img/WolfEmpty.png';    /* Empty */
 
-function changeImage(imagename, newimagename) {
+const changeImage = (imagename, newimagename) => {
   document.images[imagename].src = eval(newimagename + '.src')
 }
 
-function endsWith(str, suffix) {
+const endsWith = (str, suffix) => {
   return str.indexOf(suffix, str.length-suffix.length) !== -1;
 }
 
-function fadeouttext_redirect(url, timeout) {
+const fadeouttext_redirect = (url, timeout) => {
   $('#typedtext').fadeOut(timeout, function() {
     window.location = url;
+  });
+}
+
+const initScroll = () => {
+  $(function() {
+    var container = $('.container');
+    container.jScrollPane({
+      hideFocus:      true,
+      verticalGutter: 10
+    });
+    container.each(
+      function() {
+        $(this).jScrollPane({
+          showArrows: $(this).is('.arrow')
+        });
+        var api = $(this).data('jsp');
+        var throttleTimeout;
+        $(window).bind(
+          'resize',
+          function() {
+            // IE fires multiple resize events while you are dragging the browser window which
+            // causes it to crash if you try to update the scrollpane on every one. So we need
+            // to throttle it to fire a maximum of once every 300 milliseconds...
+            if (!throttleTimeout) {
+              throttleTimeout = setTimeout(
+                function() {
+                  api.reinitialise();
+                  throttleTimeout = null;
+                },
+                300
+              );
+            }
+          }
+        );
+      }
+    )
   });
 }
 
