@@ -23,10 +23,12 @@ $_t = new Translator;
 
 switch (trim($_GET["p"])) {
 case "home":
-default:
+case "":
     $pageContent = require_once __DIR__ . "/templates/{$homePage}.php";
     $mainContent = $pageContent["body"] ?? "";
     $customJS = $pageContent["script"] ?? "";
+    $customCSS = $pageContent["style"] ?? "";
+default:
 }
 
 require_once __DIR__ . "/templates/layout.php";

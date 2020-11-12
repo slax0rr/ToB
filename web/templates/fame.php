@@ -4,8 +4,8 @@ if (!defined("TOB_APP")) {
 }
 
 $pageContent = [];
-ob_start();
 // body
+ob_start();
 ?>
 
 <div class="wrapper">
@@ -40,16 +40,32 @@ ob_start();
 </div>
 <?php
 $pageContent["body"] = ob_get_clean();
-?>
 
-<?php
 // script
 ob_start();
 ?>
 <script src="<?= $baseurl; ?>/js/fame.js"></script>
 <?php
 $pageContent["script"] = ob_get_clean();
-$pageContent["scroll"] = true;
+
+// style
+ob_start();
+?>
+<style>
+	#chselector {
+		display: none;
+	}
+	td { 
+		padding: 0px;
+	}
+	table { 
+		border-spacing: 0px;
+		border-collapse: separate;
+	}
+</style>
+
+<?php
+$pageContent["style"] = ob_get_clean();
 
 // return content
 return $pageContent;
